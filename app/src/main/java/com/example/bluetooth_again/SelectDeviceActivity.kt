@@ -25,6 +25,7 @@ class SelectDeviceActivity : AppCompatActivity() {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.select_device_layout)
 
+       
        m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
        if(m_bluetoothAdapter == null) {
            //toast("this device doesn't support bluetooth")
@@ -38,7 +39,7 @@ class SelectDeviceActivity : AppCompatActivity() {
        select_device_refresh.setOnClickListener{ pairedDeviceList() }
    }
 
-          private fun pairedDeviceList() {
+  private fun pairedDeviceList() {
           m_pairedDevices = m_bluetoothAdapter!!.bondedDevices
           val list : ArrayList<BluetoothDevice> = ArrayList()
 
@@ -61,7 +62,7 @@ class SelectDeviceActivity : AppCompatActivity() {
               intent.putExtra(EXTRA_ADDRESS, address)
               startActivity(intent)
           }
-      }
+  }
 
 
 
