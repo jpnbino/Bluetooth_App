@@ -53,8 +53,6 @@ class SelectDeviceActivity : AppCompatActivity() {
               //toast("no paired bluetooth devices found")
           }
 
-          //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
-          //select_device_list.adapter = adapter
             val adapter = ListAdapter(this,R.layout.blt_device_item,list)
             select_device_list.adapter = adapter
 
