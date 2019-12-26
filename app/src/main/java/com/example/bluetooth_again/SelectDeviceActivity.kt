@@ -38,21 +38,27 @@ class SelectDeviceActivity : AppCompatActivity() {
        select_device_refresh.setOnClickListener{ pairedDeviceList() }
    }
 
-          private fun pairedDeviceList() {
+
+    private fun pairedDeviceList() {
           m_pairedDevices = m_bluetoothAdapter!!.bondedDevices
           val list : ArrayList<BluetoothDevice> = ArrayList()
 
+        //If the bluetooth adapter of paired devices is not empty
           if (!m_pairedDevices.isEmpty()) {
               for (device: BluetoothDevice in m_pairedDevices) {
                   list.add(device)
-                  Log.i("device", ""+device)
+                  Log.d("DEVICE", "("+device+") "+device.name)
               }
           } else {
               //toast("no paired bluetooth devices found")
           }
 
-          val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
-          select_device_list.adapter = adapter
+          //val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, list)
+          //select_device_list.adapter = adapter
+            val adapter = ListAdapter(this,R.layout.blt_device_item,list)
+            select_device_list.adapter = adapter
+
+          // Checks for a chosen device and try to start a new activity
           select_device_list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
               val device: BluetoothDevice = list[position]
               val address: String = device.address

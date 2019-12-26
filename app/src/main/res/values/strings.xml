@@ -5,5 +5,7 @@
     <string name="on">On</string>
     <string name="off">Off</string>
     <string name="disconnect">Disconnect</string>
+    <string name="bltName">TextView</string>
+    <string name="bltMacAddress">TextView</string>
 
 </resources>
